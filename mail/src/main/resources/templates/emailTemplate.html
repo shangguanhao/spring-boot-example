@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>欢迎您加入博客园</title>
+    </head>
+
+    <body>
+        <p>您好，您在博客园的帐户激活成功，您的登录用户名是：<span th:text="${username}"></span>。</p><br>
+        <p>--</p>
+        <div>博客园(
+            <a th:href="@{https://www.cnblogs.com }">www.cnblogs.com</a>
+            ) - 开发者的网上家园</div>
+
+        <p>代码改变世界！</p>
+    </body>
+
+</html>
