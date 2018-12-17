@@ -13,7 +13,7 @@
 <p><span>Thymeleaf作为Spring官方推荐的模板引擎，Spring boot对Thymeleaf支持比较友好，配置简单，这里使用Thymeleaf作为模板引擎。</span></p>
 <p><span>下面正式开始实现仿博客园发送通知邮件。</span></p>
 <h2>1. pom.xml添加邮件和模板相关依赖</h2>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"></div>
 <pre>        &lt;dependency&gt;
             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
             &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;
@@ -23,11 +23,11 @@
             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
              &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
         &lt;/dependency&gt;</pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"></div></div>
 <h2>2. application.property配置邮箱和thymelea模板</h2>
 <p>我使用的是QQ邮箱，需要获得QQ邮箱的授权码。</p>
 <div>关于QQ邮箱生成授权码：进入QQ邮箱 --&gt; 邮箱设置 --&gt; 账户 --&gt;&nbsp; POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 --&gt; 生成授权码 --&gt; 手机发送验证短信 --&gt;得到授权码</div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"></div>
 <pre>spring.mail.host=<span style="color: #000000;">smtp.qq.com
 spring.mail.username</span>=<span style="color: #000000;">QQ邮箱
 spring.mail.password</span>=<span style="color: #000000;">授权码
@@ -45,7 +45,7 @@ spring.thymeleaf.servlet.content</span>-type:text/<span style="color: #000000;">
 spring.thymeleaf.cache</span>=<span style="color: #0000ff;">false</span><span style="color: #000000;">
 spring.resources.chain.strategy.content.enabled</span>=<span style="color: #0000ff;">true</span><span style="color: #000000;">
 spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000;">/**</span></pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"></a></span></div></div>
 <h2>3. 编写Service及其实现</h2>
 <p>Service中有两个方法：</p>
 <p>sendSimpleMail用于发送简单的文本邮件，是一个比较基础的案例。</p>
@@ -58,7 +58,7 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
 }</span></pre>
 </div>
 <p>MailServiceImpl：</p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"></div>
 <pre><span style="color: #000000;">@Component
 </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> MailServiceImpl <span style="color: #0000ff;">implements</span><span style="color: #000000;"> MailService {
 
@@ -102,7 +102,7 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
         }
     }
 }</span></pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"></div></div>
 <h2>4. 创建模板</h2>
 <p>在resorces/templates下创建emailTemplate.html模板，与模板配置中的spring.thymeleaf.prefix=classpath:/templates/对应，不然会找不到模板。</p>
 <p>关于Thymeleaf的使用这里简单介绍一下：</p>
@@ -112,7 +112,7 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
 <p>输出URL：&nbsp;&lt;a href="#" th:href="@{https://www.cnblogs.com}"&gt;博客园&lt;/a&gt;</p>
 <p>更多详情的说明和规则请参见：<a href="https://www.thymeleaf.org/documentation.html" target="_blank">Thymeleaf官方文档</a></p>
 <p>emailTemplate.html：</p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"></div>
 <pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span>
 <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html </span><span style="color: #ff0000;">lang</span><span style="color: #0000ff;">="zh"</span><span style="color: #ff0000;"> xmlns:th</span><span style="color: #0000ff;">="http://www.thymeleaf.org"</span><span style="color: #0000ff;">&gt;</span>
     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
@@ -128,10 +128,10 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>代码改变世界！<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"></div></div>
 <h2>5. JUnit单元测试</h2>
 <p>使用Junit进行单元测试，pom.xml中已经默认配置好了，需要编写测试类和测试方法。测试类以<code>xxxTest.java命名，测试方法上面加<code>@Test注解就可以使用了。具体代码如下：</code></code></p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"></div>
 <pre>@RunWith(SpringRunner.<span style="color: #0000ff;">class</span><span style="color: #000000;">)
 @SpringBootTest
 </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> EmailTest {
@@ -156,61 +156,8 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
     }
 
 }</span></pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"></div></div>
 <p>进行Junit测试，就可以发送一个简答的文本邮件和一个HTML的模板邮件，几乎和博客园的一模一样（如下图所示）：</p>
 <p><img src="https://img2018.cnblogs.com/blog/1538609/201812/1538609-20181212134759117-738859529.png" alt=""></p>
 <div>完整代码：<a href="https://github.com/shangguanhao/spring-boot-example/tree/master/mail">https://github.com/shangguanhao/spring-boot-example/tree/master/mail</a></div>
 <div>参考：<a href="https://www.cnblogs.com/ityouknow/p/6823356.html" target="_blank">springboot（十）：邮件服务</a>&nbsp;</div></div><div id="MySignature" style="display: block;"><div>作者：<a href="https://www.cnblogs.com/sgh1023/" target="_blank">Goat-James</a></div>
-<div>出处：<a href="https://www.cnblogs.com/sgh1023/" target="_blank">https://www.cnblogs.com/sgh1023/</a></div>
-<div>本文版权归作者和博客园共有，欢迎转载，但必须在文章页面明显位置给出原文连接。 </div>
-<div>如果文中有不妥或者错误的地方还望高手的你指出，以免误人子弟。 </div></div>
-<div class="clear"></div>
-<div id="blog_post_info_block">
-<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/sgh1023/category/1350789.html" target="_blank">Java</a>,<a href="https://www.cnblogs.com/sgh1023/category/1355051.html" target="_blank">Spring Boot</a>,<a href="https://www.cnblogs.com/sgh1023/category/1348419.html" target="_blank">学习笔记</a></div>
-<div id="EntryTag">标签: <a href="https://www.cnblogs.com/sgh1023/tag/Spring%20Boot/">Spring Boot</a>, <a href="https://www.cnblogs.com/sgh1023/tag/%E9%82%AE%E4%BB%B6/">邮件</a></div>
-<div id="blog_post_info"><div id="green_channel">
-        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(10108416,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
-            <a id="green_channel_follow" onclick="follow('7221090c-96ff-4462-50c0-08d64a299ffb');" href="javascript:void(0);">关注我</a>
-    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
-    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="//common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>
-    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="//common.cnblogs.com/images/wechat.png" alt=""></a>
-</div>
-<div id="author_profile">
-    <div id="author_profile_info" class="author_profile_info">
-            <a href="http://home.cnblogs.com/u/sgh1023/" target="_blank"><img src="//pic.cnblogs.com/face/1538609/20181116193351.png" class="author_avatar" alt=""></a>
-        <div id="author_profile_detail" class="author_profile_info">
-            <a href="http://home.cnblogs.com/u/sgh1023/">Goat-James</a><br>
-            <a href="http://home.cnblogs.com/u/sgh1023/followees">关注 - 2</a><br>
-            <a href="http://home.cnblogs.com/u/sgh1023/followers">粉丝 - 2</a>
-        </div>
-    </div>
-    <div class="clear"></div>
-    <div id="author_profile_honor"></div>
-    <div id="author_profile_follow">
-    </div>
-</div>
-<div id="div_digg">
-    <div class="diggit" onclick="votePost(10108416,'Digg')">
-        <span class="diggnum" id="digg_count">0</span>
-    </div>
-    <div class="buryit" onclick="votePost(10108416,'Bury')">
-        <span class="burynum" id="bury_count">0</span>
-    </div>
-    <div class="clear"></div>
-    <div class="diggword" id="digg_tips">
-    </div>
-</div>
-<script type="text/javascript">
-    currentDiggType = 0;
-</script></div>
-<div class="clear"></div>
-<div id="post_next_prev"><a href="https://www.cnblogs.com/sgh1023/p/10073354.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/sgh1023/p/10073354.html" title="发布于2018-12-05 20:54">Spring Boot 2.x整合Redis</a><br><a href="https://www.cnblogs.com/sgh1023/p/10123767.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/sgh1023/p/10123767.html" title="发布于2018-12-15 16:28">Redis数据结构学习笔记</a><br></div>
-</div>
-
-
-		</div>
-		<div class="postDesc">posted @ <span id="post-date">2018-12-12 15:01</span> <a href="https://www.cnblogs.com/sgh1023/">Goat-James</a> 阅读(<span id="post_view_count">270</span>) 评论(<span id="post_comment_count">4</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=10108416" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(10108416);return false;">收藏</a></div>
-	</div>
-	<script type="text/javascript">var allowComments=true,cb_blogId=475886,cb_entryId=10108416,cb_blogApp=currentBlogApp,cb_blogUserGuid='7221090c-96ff-4462-50c0-08d64a299ffb',cb_entryCreatedDate='2018/12/12 15:01:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
-	
-</div>
