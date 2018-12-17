@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shangguan.mybatis.mapper.UserMapper">
+      <resultMap id="BaseResultMap" type="com.shangguan.mybatis.mapper.UserMapper" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <result column="passWord" property="passWord" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <!--查询所有-->
+    <select id="getAll" resultType="user">
+        select * from user
+    </select>
+    
+    <!--保存用户-->
+   <insert id="saveUser" useGeneratedKeys="true" keyProperty="id">
+        insert into user(username,password) values(#{userName},#{passWord})
+    </insert>
+    
+    <!--通过Id删除用户-->
+    <delete id="deleteUserById">
+       delete from user where id =#{id}
+    </delete>
+    
+    <!--更新该用户信息-->
+    <update id="updateUser">
+       update user set userName = #{userName},passWord = #{passWord}
+       where id = #{id}
+    </update>
+    
+</mapper>
