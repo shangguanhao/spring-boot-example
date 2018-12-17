@@ -106,10 +106,10 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
 <h2>4. 创建模板</h2>
 <p>在resorces/templates下创建emailTemplate.html模板，与模板配置中的spring.thymeleaf.prefix=classpath:/templates/对应，不然会找不到模板。</p>
 <p>关于Thymeleaf的使用这里简单介绍一下：</p>
-<p>引入命名空间：&lt;html xmlns:th="http://www.thymeleaf.org"&gt;。不同的约束文档中，可能会出现不同含义的相同标记名称，引入名称空间可以避免混淆和冲突。</p>
+<p>引入命名空间：&lt;html xmlns:th="http://www.thymeleaf.org"&gt; 。不同的约束文档中，可能会出现不同含义的相同标记名称，引入名称空间可以避免混淆和冲突。</p>
 <p>访问数据：#｛user.name｝</p>
 <p>访问变量：${today}&nbsp;&nbsp;</p>
-<p>输出URL：&nbsp;&lt;a href="#" th:href="@{https://www.cnblogs.com}"&gt;博客园&lt;/a&gt;</p>
+<p>输出URL：&nbsp;&lt;a href="#" th:href="@{https://www.cnblogs.com}" &gt;博客园&lt;/a&gt;</p>
 <p>更多详情的说明和规则请参见：<a href="https://www.thymeleaf.org/documentation.html" target="_blank">Thymeleaf官方文档</a></p>
 <p>emailTemplate.html：</p>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"></div>
@@ -160,4 +160,4 @@ spring.resources.chain.strategy.content.paths</span>=<span style="color: #008000
 <p>进行Junit测试，就可以发送一个简答的文本邮件和一个HTML的模板邮件，几乎和博客园的一模一样（如下图所示）：</p>
 <p><img src="https://img2018.cnblogs.com/blog/1538609/201812/1538609-20181212134759117-738859529.png" alt=""></p>
 <div>完整代码：<a href="https://github.com/shangguanhao/spring-boot-example/tree/master/mail">https://github.com/shangguanhao/spring-boot-example/tree/master/mail</a></div>
-<div>参考：<a href="https://www.cnblogs.com/ityouknow/p/6823356.html" target="_blank">springboot（十）：邮件服务</a>&nbsp;</div></div><div id="MySignature" style="display: block;"><div>作者：<a href="https://www.cnblogs.com/sgh1023/" target="_blank">Goat-James</a></div>
+<div>参考：<a href="https://www.cnblogs.com/ityouknow/p/6823356.html" target="_blank">springboot（十）：邮件服务</a>&nbsp;</div></div><div id="MySignature" style="display: block;">
