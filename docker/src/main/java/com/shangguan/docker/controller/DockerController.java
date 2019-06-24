@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-@RequestMapping("/springboot")
-public class HelloController {
+@RequestMapping("/docker")
+public class DockerController {
 
     @RequestMapping("/hello")
     @ResponseBody
