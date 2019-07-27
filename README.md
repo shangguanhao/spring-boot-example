@@ -24,4 +24,5 @@
 
 [使用Docker部署Spring Boot项目](https://www.cnblogs.com/sgh1023/p/11079003.html)                
 
+[RabbitMQ（三）：RabbitMQ与Spring Boot简单整合](https://www.cnblogs.com/sgh1023/p/11256273.html)
 
